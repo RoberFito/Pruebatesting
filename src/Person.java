@@ -33,13 +33,14 @@ public class Person
     }
 
     public void setMail(String mail) {
+
         Pattern p = Pattern.compile("\\w+(\\.\\w+)*@\\w+(\\.\\w+)+$");
         Matcher m = p.matcher(mail);
         if(m.find()) {
             this.mail = mail;
         }
         else {
-            this.mail = mail;
+            this.mail = "";
         }
     }
 }
