@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Person
 {
     protected String dni;
@@ -23,8 +26,13 @@ public class Person
     }
 
     public void setMail(String mail) {
-        this.mail = "";
-
-        this.mail = mail;
+        Pattern p = Pattern.compile("\\w+(\\.\\w+)*@\\w+(\\.\\w+)+$");
+        Matcher m = p.matcher(mail);
+        if(m.find()) {
+            this.mail = mail;
+        }
+        else {
+            this.mail = mail;
+        }
     }
 }
