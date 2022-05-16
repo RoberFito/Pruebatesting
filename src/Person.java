@@ -16,7 +16,14 @@ public class Person
     }
 
     public void setDni(String dni) {
-        this.dni = "";
+         Pattern pepe = Pattern.compile("^\\d{8}[A-Z]$");
+        Matcher m = pepe.matcher(dni);
+        if(m.find()) {
+            this.dni= dni;
+        }
+        else {
+            this.dni = "";
+        }
 
         this.dni = dni;
     }
